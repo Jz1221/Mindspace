@@ -1,10 +1,8 @@
-import { View, Text, ScrollView } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
-
+import { View, Text, ScrollView, Button } from "react-native";
+import * as Sentry from "@sentry/react-native"
 const ChatsTab = () => {
   return (
-    <ScrollView className="bg-surface flex-1"
-      contentInsetAdjustmentBehavior="automatic">
+    <ScrollView className="bg-surface flex-1"contentInsetAdjustmentBehavior="automatic">
       <Text className="text-white">Chats Tab</Text>
     </ScrollView>
   );
