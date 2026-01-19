@@ -3,6 +3,9 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { Image } from "expo-image";
 import { Ionicons } from "@expo/vector-icons";
 import useAuthSocial from "@/hooks/useSocialAuth";
+import { LinearGradient } from "expo-linear-gradient"
+import { AnimatedOrb } from "@/components/AnimatedOrb";
+import { BlurView } from "expo-blur";
 
 const { width, height } = Dimensions.get("window");
 
@@ -12,8 +15,49 @@ const AuthScreen = () => {
   const isLoading = loadingStrategy !== null;
   return (
     <View className="flex-1 bg-surface-dark">
-      {/* todo: animated orbs */}
-      <View className="absolute inset-0 overflow-hidden"></View>
+      <View className="absolute inset-0 overflow-hidden">
+        <LinearGradient
+          colors={["#0D0D0F", "#1A1A2E", "#16213E", "#0D0D0F"]}
+          style={{ position: "absolute", width: "100%", height: "100%" }}
+          start={{ x: 0, y: 0 }}
+          end={{ x: 1, y: 1 }}
+        />
+
+        <AnimatedOrb
+          colors={["#F4A261", "#E76F51"]}
+          size={300}
+          initialX={-80}
+          initialY={height * 0.1}
+          duration={4000}
+        />
+        <AnimatedOrb
+          colors={["#E76F51", "#F4A261"]}
+          size={250}
+          initialX={width - 100}
+          initialY={height * 0.3}
+          duration={5000}
+        />
+        <AnimatedOrb
+          colors={["#FFD7BA", "#F4A261"]}
+          size={200}
+          initialX={width * 0.3}
+          initialY={height * 0.6}
+          duration={3500}
+        />
+        <AnimatedOrb
+          colors={["#F4B183", "#E76F51"]}
+          size={180}
+          initialX={-50}
+          initialY={height * 0.75}
+          duration={4500}
+        />
+
+        <BlurView
+          intensity={70}
+          tint="dark"
+          style={{ position: "absolute", width: "100%", height: "100%" }}
+        />
+      </View>
 
       <SafeAreaView className="flex-1">
         {/* Top Section - Branding */}
@@ -44,7 +88,9 @@ const AuthScreen = () => {
             <Text className="text-5xl font-bold text-foreground text-center font-sans">
               Connect & Chat
             </Text>
-            <Text className="text-3xl font-bold text-primary font-mono">Seamlessly</Text>
+            <Text className="text-3xl font-bold text-primary font-mono">
+              Seamlessly
+            </Text>
           </View>
 
           {/* AUTH BUTTONS */}
@@ -66,12 +112,14 @@ const AuthScreen = () => {
                     style={{ width: 20, height: 20 }}
                     contentFit="contain"
                   />
-                  <Text className="text-gray-900 font-semibold text-sm">Google</Text>
+                  <Text className="text-gray-900 font-semibold text-sm">
+                    Google
+                  </Text>
                 </>
               )}
             </Pressable>
 
-             {/* APPLE BTN */}
+            {/* APPLE BTN */}
             <Pressable
               className="flex-1 flex-row items-center justify-center gap-2 bg-white/10 py-4 rounded-2xl border border-white/20 active:scale-[0.97]"
               disabled={isLoading}
@@ -84,7 +132,9 @@ const AuthScreen = () => {
               ) : (
                 <>
                   <Ionicons name="logo-apple" size={20} color="#FFFFFF" />
-                  <Text className="text-foreground font-semibold text-sm">Apple</Text>
+                  <Text className="text-foreground font-semibold text-sm">
+                    Apple
+                  </Text>
                 </>
               )}
             </Pressable>
