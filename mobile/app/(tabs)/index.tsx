@@ -59,8 +59,7 @@ const ChatsTab = () => {
           iconColor="#6B6B70"
           iconSize={64}
           buttonLabel="New Chat"
-          // todo: fix this later
-          onPressButton={() => console.log("pressed")}
+          onPressButton={() => router.push("/new-chat")}
         />}
       />
     </View>
@@ -76,7 +75,10 @@ function Header() {
     <View className="px-5 pt-2 pb-4">
       <View className="flex-row items-center justify-between mt-4">
         <Text className="text-2xl font-bold text-foreground">Chats</Text>
-        <Pressable className="size-10 bg-primary rounded-full items-center justify-center">
+        <Pressable 
+          className="size-10 bg-primary rounded-full items-center justify-center"
+          onPress={() => router.push("/new-chat")}
+        >
           <Ionicons name="create-outline" size={20} color="#0D0D0F" />
         </Pressable>
       </View>
