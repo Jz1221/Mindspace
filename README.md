@@ -207,3 +207,8 @@ For support, you can contact me at:
 - GitHub: jz1221
 
 I’ll make sure your ideas and memories keep flowing smoothly!
+
+## Reference
+
+You may view this as reference:
+- Youtube Link: https://youtu.be/ufo46oWej3g?si=wroyuYbCVZs8Xcsz
