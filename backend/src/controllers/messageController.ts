@@ -9,16 +9,16 @@ export async function getMessages(req: AuthRequest, res: Response, next: NextFun
     const { chatId } = req.params;
 
     const chat = await Chat.findOne({
-       _id: chatId,
-       participants: userId, 
+      _id: chatId,
+      participants: userId,
     });
 
     if (!chat) {
       res.status(404).json({ message: "Chat not found" });
       return;
-    };
+    }
 
-     const messages = await Message.find({ chat: chatId })
+    const messages = await Message.find({ chat: chatId })
       .populate("sender", "name email avatar")
       .sort({ createdAt: 1 }); // oldest first
 
@@ -26,5 +26,5 @@ export async function getMessages(req: AuthRequest, res: Response, next: NextFun
   } catch (error) {
     res.status(500);
     next(error);
-  }  
+  }
 }
